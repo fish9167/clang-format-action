@@ -29,7 +29,8 @@ if ! git diff --quiet; then
   git push -u origin $BRANCH
 
   # Set a message about what happened
-  MSG="Changes are applied, committed, and pushed!"
+  #MSG="Changes are applied, committed, and pushed!"
+  MSG=`git diff`
 else
   MSG="There are no changes, all good!"
 fi
