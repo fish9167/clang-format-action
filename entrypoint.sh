@@ -23,7 +23,6 @@ if ! git diff --quiet; then
   echo "get last_commit_msg"
   last_commit_msg=`git show --format=%s | head -n 1`
   echo ${last_commit_msg}
-  exit 1
   #echo ">> Committing the changes"
   #git commit -a -m "Apply clang-format" || true
 
@@ -35,6 +34,8 @@ if ! git diff --quiet; then
   # Set a message about what happened
   #MSG="Changes are applied, committed, and pushed!"
   MSG=`git diff`
+  echo "::set-output name=message::$MSG"
+  exit 1
 else
   MSG="There are no changes, all good!"
 fi
