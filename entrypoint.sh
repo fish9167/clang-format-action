@@ -9,6 +9,11 @@ SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | 
 
 # Run clang-format over all the matching files
 echo "Using style $1"
+
+echo "--------------------------------"
+echo "Illegal files:"
+echo "--------------------------------"
+
 clang-format -style=$1 -i $SRC >> repot.txt
 # Check to see if there is anything to be done
 # If so commit and push. Otherwise do nothing
