@@ -13,6 +13,11 @@ clang-format -style=$1 -i $SRC >> clang-format-report.txt
 
 # Check to see if there is anything to be done
 # If so commit and push. Otherwise do nothing
+echo "cat log"
+cat clang-format-report.txt
+
+echo "git diff"
+git diff
 
 if ! git diff --quiet; then
   # Configure the author
