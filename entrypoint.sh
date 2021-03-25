@@ -23,6 +23,7 @@ if ! git diff --quiet; then
   echo "get last_commit_msg"
   last_commit_msg=`git show --format=%s | head -n 1`
   echo ${last_commit_msg}
+  exit 1
   #echo ">> Committing the changes"
   #git commit -a -m "Apply clang-format" || true
 
