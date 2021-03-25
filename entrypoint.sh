@@ -20,9 +20,9 @@ if ! git diff --quiet; then
   #git config --global user.name "clang-format"
 
   # Commit the changes
-  echo "get last_commit_msg"
-  last_commit_msg=`git show --format=%s | head -n 1`
-  echo ${last_commit_msg}
+  #echo "get last_commit_msg"
+  #last_commit_msg=`git show --format=%s | head -n 1`
+  #echo ${last_commit_msg}
   #echo ">> Committing the changes"
   #git commit -a -m "Apply clang-format" || true
 
