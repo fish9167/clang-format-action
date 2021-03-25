@@ -16,8 +16,6 @@ clang-format -style=$1 -i $SRC >> clang-format-report.txt
 echo "cat log"
 cat clang-format-report.txt
 
-echo "git diff"
-git diff
 
 if ! git diff --quiet; then
   # Configure the author
@@ -36,7 +34,7 @@ if ! git diff --quiet; then
 
   # Set a message about what happened
   #MSG="Changes are applied, committed, and pushed!"
-  MSG=`cat clang-format-report.txt`
+  MSG=`git diff`
 else
   MSG="There are no changes, all good!"
 fi
