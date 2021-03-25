@@ -9,13 +9,9 @@ SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | 
 
 # Run clang-format over all the matching files
 echo "Using style $1"
-clang-format -style=$1 -i $SRC >> clang-format-report.txt
-
+clang-format -style=$1 -i $SRC 
 # Check to see if there is anything to be done
 # If so commit and push. Otherwise do nothing
-echo "cat log"
-cat clang-format-report.txt
-
 
 if ! git diff --quiet; then
   # Configure the author
