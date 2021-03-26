@@ -14,7 +14,7 @@ echo "--------------------------------"
 echo "Illegal files:"
 echo "--------------------------------"
 
-clang-format -style=$1 -i $SRC >> repot.txt
+clang-format -style=$1 -i $SRC
 # Check to see if there is anything to be done
 # If so commit and push. Otherwise do nothing
 
