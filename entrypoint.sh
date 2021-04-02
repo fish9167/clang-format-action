@@ -18,8 +18,9 @@ echo "--------------------------------"
 echo "Illegal files:"
 echo "--------------------------------"
 git status | grep modified >> change.list
-sed -i 's/modified/;/g' change.list
-echo `cat change.list`
+sed -i 's/modified:/;/g' change.list
+sed -i 's/^;//' change.list
+cat change.list
  
 if ! git diff --quiet; then
   # Configure the author
