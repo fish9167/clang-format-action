@@ -10,14 +10,17 @@ SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | 
 # Run clang-format over all the matching files
 echo "Using style $1"
 
-#echo "--------------------------------"
-#echo "Illegal files:"
-#echo "--------------------------------"
 
 clang-format -style=$1 -i $SRC
 # Check to see if there is anything to be done
 # If so commit and push. Otherwise do nothing
-
+echo "--------------------------------"
+echo "Illegal files:"
+echo "--------------------------------"
+git status | grep modified >> change.list
+sed -i 's/modified/Illegal/g' change.list
+echo `cat change.list`
+ 
 if ! git diff --quiet; then
   # Configure the author
   #echo ">> Configuring the author"
