@@ -18,7 +18,7 @@ echo "--------------------------------"
 echo "Illegal files:"
 echo "--------------------------------"
 git status | grep modified >> change.list
-sed -i 's/modified/Illegal/g' change.list
+sed -i 's/modified/\nIllegal/g' change.list
 echo `cat change.list`
  
 if ! git diff --quiet; then
