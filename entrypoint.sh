@@ -32,7 +32,7 @@ if ! git diff --quiet; then
   #last_commit_msg=`git show --format=%s | head -n 1`
   #echo ${last_commit_msg}
   echo ">> Committing the changes"
-  git commit -a -m "Apply clang-format" || true
+  git commit -a -m "Auto apply clang-format (Github Action)" || true
 
   # Push to the branch
   BRANCH=${GITHUB_REF#*refs/heads/}
