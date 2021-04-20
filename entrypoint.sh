@@ -37,7 +37,7 @@ if ! git diff --quiet; then
   # Push to the branch
   BRANCH=${GITHUB_REF#*refs/heads/}
   echo ">> Pushing to $BRANCH"
-
+  echo "push $BRANCH"
   git push -u origin $BRANCH
 
   # Set a message about what happened
