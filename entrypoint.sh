@@ -37,7 +37,7 @@ if ! git diff --quiet; then
   # Push to the branch
   BRANCH=${GITHUB_REF#*refs/heads/}
   echo ">> Pushing to $BRANCH"
-  git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
+
   git push -u origin $BRANCH
 
   # Set a message about what happened
