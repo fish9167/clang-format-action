@@ -38,7 +38,7 @@ if ! git diff --quiet; then
   BRANCH=${GITHUB_REF#*refs/heads/}
   echo ">> Pushing to $BRANCH"
   echo "push $BRANCH"
-  #git push -u origin $BRANCH
+  git push -u origin $BRANCH
 
   # Set a message about what happened
   MSG="Changes are applied, committed, and pushed!"
