@@ -20,6 +20,7 @@ echo "--------------------------------"
 git status | grep modified >> change.list
 sed -i 's/modified://g' change.list
 cat change.list
+rm -f change.list
  
 if ! git diff --quiet; then
   MSG="Changes are applied, committed, and pushed!"
