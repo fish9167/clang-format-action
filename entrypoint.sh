@@ -28,3 +28,4 @@ else
   MSG="There are no changes, all good!"
 fi
 echo "::set-output name=message::$MSG"
+exit 0
