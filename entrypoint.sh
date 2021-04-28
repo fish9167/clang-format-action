@@ -5,7 +5,10 @@ set -e
 cd $GITHUB_WORKSPACE
 
 # Find the C/C++ source files
-SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2)
+SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2 | grep -v  cocos/bindings/auto)
+if [ -f exclude.txt ];then
+  SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2 | grep -v  `cat exclude.tx` )
+fi
 
 # Run clang-format over all the matching files
 echo "Using style $1"
