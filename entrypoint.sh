@@ -6,7 +6,7 @@ cd $GITHUB_WORKSPACE
 
 # Find the C/C++ source files
 SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2 | grep -v  cocos/bindings/auto)
-if test - exclude.txt ;then
+if test -s exclude.txt ;then
   for finename in `cat exclude.txt`; do
     echo "exclude file $ex"
     SRC=$(echo $SRC | grep -v $finename)
