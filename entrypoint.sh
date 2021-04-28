@@ -8,7 +8,7 @@ cd $GITHUB_WORKSPACE
 SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2 | grep -v  cocos/bindings/auto)
 if test -s exclude.txt ;then
   for finename in `cat exclude.txt`; do
-    echo "exclude file $ex"
+    echo "exclude file: $finename "
     SRC=$(echo $SRC | grep -v $finename)
   done
 fi
