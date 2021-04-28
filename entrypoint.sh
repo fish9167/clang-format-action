@@ -6,8 +6,11 @@ cd $GITHUB_WORKSPACE
 
 # Find the C/C++ source files
 SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2 | grep -v  cocos/bindings/auto)
-if [ -f exclude.txt ];then
-  SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(c\|h\|hpp\|cpp\|cxx\)\$" | cut -f 2 | grep -v  `cat exclude.tx` )
+if test - exclude.txt ;then
+  for finename in `cat exclude.txt`;then
+    echo "exclude file $ex"
+    SRC=$(echo $SRC | grep -v $finename)
+  done
 fi
 
 # Run clang-format over all the matching files
